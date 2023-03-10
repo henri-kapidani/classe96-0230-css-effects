@@ -4,8 +4,51 @@
 	box-sizing: border-box;
 }
 
+body {
+	position: relative;
+	height: 100vh;
+}
+
 .square {
+	position: absolute;
+	left: 0;
+	top: 0;
 	width: 100px;
 	height: 100px;
 	background: red;
+	animation-name: around-window;
+	animation-duration: 10s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-delay: 1s;
+	animation-direction: alternate;
+}
+
+@keyframes around-window {
+	25% {
+		left: calc(100% - 100px);
+		top: 0;
+		transform: scale(3);
+	}
+
+	35% {
+		left: calc(50% - 100px);
+		top: calc(50% - 100px);
+	}
+
+	50% {
+		left: calc(100% - 100px);
+		top: calc(100% - 100px);
+	}
+
+	75% {
+		left: 0;
+		top: calc(100% - 100px);
+		transform: scale(.2);
+	}
+
+	100% {
+		left: calc(50% - 100px);
+		top: calc(50% - 100px);
+	}
 }
